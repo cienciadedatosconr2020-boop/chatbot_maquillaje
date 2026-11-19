@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guía de compra de maquillaje | Resuelve tus dudas</title>
+  <style>
+    /* Estilos base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      background: #fdf2f8;  /* fondo suave rosado */
+      color: #1f1f1f;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 2rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05), 0 8px 20px rgba(0, 0, 0, 0.03);
+      padding: 2.5rem 2rem;
+    }
+
+    /* Encabezado */
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #4a1e2c;
+      letter-spacing: -0.02em;
+      display: inline-block;
+      padding-bottom: 0.5rem;
+      border-bottom: 4px solid #f472b6;
+    }
+
+    .subhead {
+      font-size: 1.1rem;
+      color: #6b4e5a;
+      margin-top: 1rem;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Tarjetas de preguntas */
+    .faq-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+
+    .faq-card {
+      background: #fff9fc;
+      border: 1px solid #fbcfe8;
+      border-radius: 1.5rem;
+      padding: 1.5rem 1.8rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 6px rgba(244, 114, 182, 0.08);
+    }
+
+    .faq-card:hover {
+      border-color: #f472b6;
+      box-shadow: 0 8px 20px rgba(244, 114, 182, 0.12);
+      background: #ffffff;
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #831843;
+      margin-bottom: 0.75rem;
+    }
+
+    .faq-question span {
+      background: #fbcfe8;
+      color: #831843;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .faq-answer {
+      font-size: 1rem;
+      color: #2d2d2d;
+      padding-left: 2.7rem; /* alinea con el texto después del icono */
+    }
+
+    .faq-answer p {
+      margin-bottom: 0.6rem;
+    }
+
+    .faq-answer ul, .faq-answer ol {
+      margin-top: 0.5rem;
+      margin-left: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .faq-answer li {
+      margin-bottom: 0.25rem;
+    }
+
+    .faq-answer strong {
+      color: #be185d;
+    }
+
+    .tip {
+      background: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      padding: 0.75rem 1rem;
+      border-radius: 0.75rem;
+      margin-top: 0.75rem;
+      font-size: 0.95rem;
+      color: #78350f;
+    }
+
+    /* Sección de productos recomendados */
+    .productos-recomendados {
+      margin-top: 3rem;
+      background: linear-gradient(145deg, #fff1f7, #ffffff);
+      border-radius: 2rem;
+      padding: 2rem 2rem 1.5rem;
+      border: 1px solid #fbcfe8;
+    }
+
+    .productos-recomendados h2 {
+      font-size: 1.8rem;
+      color: #4a1e2c;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .productos-recomendados h2 i {
+      font-size: 2rem;
+      color: #f472b6;
+    }
+
+    .productos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .producto-card {
+      background: white;
+      border-radius: 1.2rem;
+      padding: 1.4rem 1.2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+      border: 1px solid #fce7f3;
+      transition: transform 0.15s;
+    }
+
+    .producto-card:hover {
+      transform: translateY(-4px);
+      border-color: #f9a8d4;
+    }
+
+    .producto-card h3 {
+      font-size: 1.2rem;
+      color: #9d174d;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .producto-card p {
+      font-size: 0.95rem;
+      color: #4b2e3b;
+      margin-bottom: 0.4rem;
+    }
+
+    .producto-card .precio {
+      font-weight: 700;
+      color: #be185d;
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+      display: block;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #fce7f3;
+      color: #9d174d;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 1rem;
+      letter-spacing: 0.3px;
+    }
+
+    /* Pie de página */
+    footer {
+      margin-top: 2.5rem;
+      text-align: center;
+      color: #9a7b88;
+      font-size: 0.9rem;
+      border-top: 1px dashed #fbcfe8;
+      padding-top: 1.8rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      body { padding: 1rem 0.5rem; }
+      .container { padding: 1.5rem 1.2rem; }
+      h1 { font-size: 1.9rem; }
+      .faq-question { font-size: 1.1rem; }
+      .faq-answer { padding-left: 0; }
+      .faq-answer ul { margin-left: 1rem; }
+      .productos-recomendados { padding: 1.5rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>✨ Guía de compra de maquillaje ✨</h1>
+      <p class="subhead">Resolvemos las dudas más frecuentes para que aciertes con tus productos, sin gastar de más y cuidando tu piel.</p>
+    </header>
+
+    <!-- Preguntas habituales -->
+    <section class="faq-grid">
+      <!-- 1. Cómo elegir base de maquillaje -->
+      <article class="faq-card">
+        <div class="faq-question"><span>1</span> ¿Cómo elijo la base de maquillaje según mi tipo de piel?</div>
+        <div class="faq-answer">
+          <p><strong>Piel grasa:</strong> busca bases oil-free, con acabado mate y textura ligera (tipo fluido). Evita fórmulas con aceites o brillos intensos.</p>
+          <p><strong>Piel seca:</strong> elige bases hidratantes, con ácido hialurónico o glicerina, acabado luminoso o satinado.</p>
+          <p><strong>Piel mixta:</strong> bases de cobertura media, acabado natural. Puedes usar polvo solo en la zona T.</p>
+          <p><strong>Piel sensible:</strong> sin fragancia, hipoalergénicas, con protección solar mineral y textura suave.</p>
+          <div class="tip">💡 Consejo extra: siempre prueba la base en la mandíbula (no en la mano) y espera 10 minutos para ver cómo reacciona con tu PH.</div>
+        </div>
+      </article>
+
+      <!-- 2. Tono correcto -->
+      <article class="faq-card">
+        <div class="faq-question"><span>2</span> ¿Cómo encuentro mi tono exacto de maquillaje?</div>
+        <div class="faq-answer">
+          <p>Prueba <strong>tres tonos cercanos</strong> en la línea de la mandíbula. El correcto es el que se funde con tu cuello sin dejar línea visible.</p>
+          <ul>
+            <li>Si tienes <strong>subtono cálido</strong> (dorado, amarillo), elige bases con matiz amarillo.</li>
+            <li>Si tienes <strong>subtono frío</strong> (rosado, azulado), busca bases con matiz rosado.</li>
+            <li>Si tienes <strong>subtono neutro</strong>, busca bases equilibradas (ni muy rosadas ni muy amarillas).</li>
+          </ul>
+          <p>La luz natural es clave: revisa el tono junto a una ventana, no con luz artificial.</p>
+        </div>
+      </article>
+
+      <!-- 3. Máscara de pestañas -->
+      <article class="faq-card">
+        <div class="faq-question"><span>3</span> ¿Qué máscara de pestañas me conviene según mis pestañas?</div>
+        <div class="faq-answer">
+          <ul>
+            <li><strong>Pestañas cortas y rectas:</strong> máscara curvas — buscan curvar y alargar desde la raíz.</li>
+            <li><strong>Pestañas escasas o finas:</strong> fórmulas de volumen y engrosamiento, cepillo de cerdas densas.</li>
+            <li><strong>Pestañas que se caen o son débiles:</strong> máscaras con tratamiento (con pantenol, biotina) y cepillo de goma.</li>
+            <li><strong>Para uso diario:</strong> máscara alargadora, resistente al agua solo si sudas mucho o vas a llorar.</li>
+          </ul>
+          <div class="tip">💡 Reemplaza la máscara cada 3-4 meses para evitar infecciones.</div>
+        </div>
+      </article>
+
+      <!-- 4. Labiales: acabado y duración -->
+      <article class="faq-card">
+        <div class="faq-question"><span>4</span> ¿Cómo elegir un labial que dure todo el día?</div>
+        <div class="faq-answer">
+          <p>Los labiales de <strong>larga duración</strong> suelen ser líquidos mate o en lápiz. Busca palabras como "transfer-proof" o "24h".</p>
+          <p>Si prefieres hidratación, los bálsamos con color duran menos pero cuidan. Para un look natural, elige tonos nude o malva según tu subtono.</p>
+          <ul>
+            <li><strong>Acabado mate:</strong> mayor duración, pero puede resecar. Prepara con bálsamo.</li>
+            <li><strong>Acabado cremoso:</strong> más cómodo, pero se transfiere. Ideal para retoques.</li>
+            <li><strong>Acabado gloss:</strong> brillo y volumen, poca duración. Perfecto para looks frescos.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 5. Delineador: lápiz, gel o líquido -->
+      <article class="faq-card">
+        <div class="faq-question"><span>5</span> ¿Qué delineador de ojos es mejor para principiantes?</div>
+        <div class="faq-answer">
+          <p>Para <strong>principiantes</strong>, un lápiz de ojos suave o un delineador en gel con pincel biselado son más fáciles de controlar que el líquido.</p>
+          <ul>
+            <li><strong>Lápiz:</strong> ideal para difuminar y hacer ahumados. Perdona errores.</li>
+            <li><strong>Gel:</strong> precisa y de larga duración, requiere algo de práctica pero permite trazos finos.</li>
+            <li><strong>Líquido:</strong> para looks gráficos y cat eye. Muy preciso pero menos flexible.</li>
+          </ul>
+          <p>Elige fórmulas <strong>a prueba de agua</strong> solo si tienes párpados grasos o lloras con facilidad.</p>
+        </div>
+      </article>
+
+      <!-- 6. Polvo y fijación -->
+      <article class="faq-card">
+        <div class="faq-question"><span>6</span> ¿Polvo suelto o compacto? ¿Cómo fijar el maquillaje?</div>
+        <div class="faq-answer">
+          <p><strong>Polvo suelto:</strong> mejor para sellar y matificar, más cantidad y ligereza. Ideal para piel grasa.</p>
+          <p><strong>Polvo compacto:</strong> práctico para retoques y viajes, cobertura ligera a media.</p>
+          <p>Para fijar: aplica polvo solo en zona T y luego usa <strong>spray fijador</strong> (si tienes piel seca) o <strong>bruma matificante</strong> (si tienes piel grasa).</p>
+          <div class="tip">💡 Si usas base en polvo, el spray fijador ayuda a que se integre y no quede empolvado.</div>
+        </div>
+      </article>
+
+      <!-- 7. Brochas y limpieza -->
+      <article class="faq-card">
+        <div class="faq-question"><span>7</span> ¿Qué brochas necesito realmente y cómo las limpio?</div>
+        <div class="faq-answer">
+          <p>Con <strong>4 brochas básicas</strong> puedes maquillarte completo: base (fibra sintética densa), polvo (fibra natural o sintética grande), difuminar sombras y una pequeña para detalles.</p>
+          <ul>
+            <li>Límpialas cada 1-2 semanas con jabón neutro o limpiador de brochas.</li>
+            <li>Sécalas en horizontal para que el agua no dañe el pegamento.</li>
+            <li>Las de fibra sintética son mejores para productos líquidos y cremosos.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 8. Maquillaje para piel sensible / acné -->
+      <article class="faq-card">
+        <div class="faq-question"><span>8</span> ¿Qué maquillaje es mejor para piel con acné o sensible?</div>
+        <div class="faq-answer">
+          <p>Busca etiquetas <strong>non-comedogénico</strong> (no obstruye poros), <strong>oil-free</strong> y <strong>sin fragancia</strong>. Los maquillajes minerales sueltos suelen ser bien tolerados.</p>
+          <ul>
+            <li>Evita bases muy pesadas o con siliconas oclusivas si tienes acné activo.</li>
+            <li>Prefiere fórmulas con ácido salicílico o niacinamida (algunas bases medicadas).</li>
+            <li>Desmaquíllate siempre con agua micelar o aceite limpiador suave, sin frotar.</li>
+          </ul>
+          <div class="tip">💡 Prueba siempre en una pequeña zona del rostro antes de usar un producto nuevo por primera vez.</div>
+        </div>
+      </article>
+    </section>
+
+    <!-- Productos recomendados (ejemplos) -->
+    <section class="productos-recomendados">
+      <h2>🛍️ Productos que recomendamos según dudas frecuentes</h2>
+      <div class="productos-grid">
+        <div class="producto-card">
+          <h3>Base oil-free</h3>
+          <p>Para piel grasa o mixta. Acabado mate natural, controla brillos 8h.</p>
+          <span class="badge">No comedogénico</span>
+          <span class="precio">$24.900</span>
+        </div>
+        <div class="producto-card">
+          <h3>Máscara de pestañas curva</h3>
+          <p>Cepillo curvo, alarga y curva. Resistente al agua.</p>
+          <span class="badge">Larga duración</span>
+          <span class="precio">$15.500</span>
+        </div>
+        <div class="producto-card">
+          <h3>Delineador en gel</h3>
+          <p>Textura cremosa, incluye pincel biselado. Ideal para principiantes.</p>
+          <span class="badge">Fácil aplicación</span>
+          <span class="precio">$12.900</span>
+        </div>
+        <div class="producto-card">
+          <h3>Labial líquido mate</h3>
+          <p>Larga duración, transfer-proof, no reseca. Tono nude universal.</p>
+          <span class="badge">24h</span>
+          <span class="precio">$18.700</span>
+        </div>
+        <div class="producto-card">
+          <h3>Spray fijador</h3>
+          <p>Fija el maquillaje hasta 12h, con acabado luminoso. Apto piel sensible.</p>
+          <span class="badge">Hipoalergénico</span>
+          <span class="precio">$21.300</span>
+        </div>
+        <div class="producto-card">
+          <h3>Set de 4 brochas</h3>
+          <p>Base, polvo, difuminar y detalle. Fibra sintética suave.</p>
+          <span class="badge">Veganas</span>
+          <span class="precio">$29.900</span>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Guía de compra de maquillaje · Resolviendo tus dudas para una compra inteligente</p>
+      <p style="margin-top: 0.5rem;">© 2025 · Todos los precios son orientativos · Prueba siempre los productos en tienda física si es posible.</p>
+    </footer>
+  </div>
+</body>
+</html>
